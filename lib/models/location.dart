@@ -4,24 +4,25 @@ List<Location> locationFromJson(String json) =>
     List<Location>.from(jsonDecode(json).map((e) => Location.fromJson(e)));
 
 class Location {
-  Location(
-    this.nid,
-    this.parentNid,
-    this.name,
+  Location({
+    required this.nid,
+    required this.parentNid,
+    required this.name,
     this.latitude,
     this.longitude,
-  );
+  });
 
   int nid;
   int parentNid;
   String name;
-  double latitude;
-  double longitude;
+  num? latitude;
+  num? longitude;
 
-  Location.fromJson(Map<String, dynamic> json)
-      : nid = json["nid"],
-        parentNid = json["parent_nid"],
-        name = json["name"],
-        latitude = json["latitude"].toDouble(),
-        longitude = json["longitude"].toDouble();
+  factory Location.fromJson(Map<String, dynamic> json) => Location(
+        nid: json["nid"],
+        parentNid: json["parent_nid"],
+        name: json["name"],
+        latitude: (json["latitude"] ?? 0),
+        longitude: (json["longitude"] ?? 0),
+      );
 }

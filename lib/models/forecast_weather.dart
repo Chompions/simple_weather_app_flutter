@@ -56,12 +56,12 @@ class Coord {
     this.lon,
   });
 
-  double? lat;
-  double? lon;
+  num? lat;
+  num? lon;
 
   factory Coord.fromJson(Map<String, dynamic> json) => Coord(
-        lat: json["lat"].toDouble(),
-        lon: json["lon"].toDouble(),
+        lat: json["lat"],
+        lon: json["lon"],
       );
 }
 
@@ -83,7 +83,7 @@ class ForecastItem {
   Clouds? clouds;
   Wind? wind;
   int? visibility;
-  double? pop;
+  num? pop;
   DateTime? dtTxt;
 
   factory ForecastItem.fromJson(Map<String, dynamic> json) => ForecastItem(
@@ -93,7 +93,7 @@ class ForecastItem {
         clouds: Clouds.fromJson(json["clouds"]),
         wind: Wind.fromJson(json["wind"]),
         visibility: json["visibility"],
-        pop: json["pop"].toDouble(),
+        pop: json["pop"],
         dtTxt: DateTime.parse(json["dt_txt"]),
       );
 }
@@ -111,25 +111,25 @@ class Main {
     this.tempKf,
   });
 
-  double? temp;
-  double? feelsLike;
-  double? tempMin;
-  double? tempMax;
+  num? temp;
+  num? feelsLike;
+  num? tempMin;
+  num? tempMax;
   int? pressure;
   int? seaLevel;
   int? grndLevel;
   int? humidity;
-  double? tempKf;
+  num? tempKf;
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: json["temp"].toDouble(),
-        feelsLike: json["feels_like"].toDouble(),
-        tempMin: json["temp_min"].toDouble(),
-        tempMax: json["temp_max"].toDouble(),
+        temp: json["temp"],
+        feelsLike: json["feels_like"],
+        tempMin: json["temp_min"],
+        tempMax: json["temp_max"],
         pressure: json["pressure"],
         seaLevel: json["sea_level"],
         grndLevel: json["grnd_level"],
         humidity: json["humidity"],
-        tempKf: json["temp_kf"].toDouble(),
+        tempKf: json["temp_kf"],
       );
 }

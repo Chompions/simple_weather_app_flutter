@@ -34,6 +34,8 @@ class RemoteService {
 
   Future<ForecastWeather> getForecastWeather(Location location) async {
     try {
+      print(location.latitude);
+      print(location.longitude);
       Uri uri = Uri.parse(
           'https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&lang=ID&units=metric&appid=${DotEnv.env['OPEN_WEATHER_API_KEY']}');
 

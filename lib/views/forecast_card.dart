@@ -78,7 +78,8 @@ class ForecastCard extends StatelessWidget {
                                     forecastList[key]?[index].weather?[0].icon ?? '01d'),
                               ),
                               Text(
-                                  remoteService.getTempDegree(forecastList[key]?[index].main?.temp),
+                                  remoteService.getTempDegree(
+                                      forecastList[key]?[index].main?.temp?.toDouble() ?? 0),
                                   style: TextStyle(fontSize: 12))
                             ],
                           ),
